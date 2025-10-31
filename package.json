@@ -1,0 +1,57 @@
+{
+  "name": "@novout/ut",
+  "version": "1.0.1",
+  "description": "A collection of commands",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Novout/ut"
+  },
+  "bugs": {
+    "url": "https://github.com/Novout/ut/issues"
+  },
+  "homepage": "https://github.com/Novout/ut/",
+  "author": "Giovane Cardoso",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*",
+    "package.json",
+    "LICENSE"
+  ],
+  "keywords": [
+    "git",
+    "cli"
+  ],
+  "scripts": {
+    "dev": "pnpm build && node dist/index.js",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "format": "prettier . --write",
+    "prepublishOnly": "pnpm build"
+  },
+  "bin": {
+    "utili": "dist/index.js",
+    "ut": "dist/index.js",
+    "u": "dist/index.js"
+  },
+  "dependencies": {
+    "destr": "^2.0.5",
+    "execa": "9.6.0",
+    "fs-extra": "^11.3.2",
+    "pathe": "2.0.3",
+    "sade": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.9.2",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
