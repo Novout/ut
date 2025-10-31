@@ -5,7 +5,7 @@ Utili
 A collection of commands.
 <h4>
 <p align="center">
-  <a href="https://www.npmjs.com/package/utili"><img src="https://img.shields.io/npm/v/utili?style=for-the-badge&color=a0a3cf&label="></a>
+  <a href="https://www.npmjs.com/package/@novout/ut"><img src="https://img.shields.io/npm/v/@novout/ut?style=for-the-badge&color=a0a3cf&label="></a>
 <p>
 
 `npm i -g @novout/ut`
