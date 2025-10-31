@@ -3,7 +3,7 @@
 import sade from "sade";
 import { execa } from "execa";
 import { isLerna, isPnpmWorkspace, tool } from "./npm";
-import { getFile } from "./utils";
+import { exists, getFile } from "./utils";
 
 (async function () {
   const prog = sade("nvt-utilidades");
@@ -54,7 +54,7 @@ import { getFile } from "./utils";
       if (!repo.stdout?.includes("https://github.com"))
         throw Error("utili release supports only github repositories");
 
-      const pkg = getFile("./package.json") as { version: string };
+      const pkg = getFile("./package.json") as { version?: string };
       let version = pkg.version;
       if (!version)
         version = (await execa`git describe --abbrev=0 --tags`).stdout;
@@ -65,7 +65,11 @@ import { getFile } from "./utils";
           "wrong version for create release! Check package.json version field",
         );
 
-      await execa`gh release create ${version} --title ${version} --verify-tag`;
+      const notes = exists("./CHANGELOG.md")
+        ? "--notes-file /CHANGELOG.md"
+        : "--generate-notes";
+
+      await execa`gh release create ${version} --title ${version} --verify-tag ${notes}`;
     });
 
   prog.parse(process.argv);
