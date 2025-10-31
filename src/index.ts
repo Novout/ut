@@ -6,7 +6,7 @@ import { isLerna, isPnpmWorkspace, tool } from "./npm";
 import { getFile } from "./utils";
 
 (async function () {
-  const prog = sade("ut");
+  const prog = sade("nvt-utilidades");
 
   prog
     .command("commit <message>", "GIT-COMMIT", {

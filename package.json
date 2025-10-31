@@ -1,6 +1,6 @@
 {
-  "name": "@novout/ut",
-  "version": "1.0.1",
+  "name": "nvt-utilidades",
+  "version": "1.0.0",
   "description": "A collection of commands",
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "prepublishOnly": "pnpm build"
   },
   "bin": {
+    "nvt-utilidades": "dist/index.js",
     "utili": "dist/index.js",
     "ut": "dist/index.js",
     "u": "dist/index.js"

@@ -2,13 +2,13 @@
 Utili
 </h1>
 <h4 align="center">
-A collection of commands.
+A personal collection of commands.
 <h4>
 <p align="center">
-  <a href="https://www.npmjs.com/package/@novout/ut"><img src="https://img.shields.io/npm/v/@novout/ut?style=for-the-badge&color=a0a3cf&label="></a>
+  <a href="https://www.npmjs.com/package/nvt-utilidades"><img src="https://img.shields.io/npm/v/nvt-utilidades?style=for-the-badge&color=a0a3cf&label="></a>
 <p>
 
-`npm i -g @novout/ut`
+`npm i -g nvt-utilidades`
 
 ### Commands
 
