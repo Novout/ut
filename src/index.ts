@@ -16,6 +16,8 @@ import { exists, getFile } from "./utils";
     .action(async (message: string) => {
       await execa`git add -A`;
       await execa`git commit -m ${message}`;
+
+      console.log("commit <message> success!");
     });
 
   prog
@@ -26,6 +28,8 @@ import { exists, getFile } from "./utils";
     .action(async () => {
       const branch = (await execa`git branch --show-current`).stdout;
       await execa`git push origin ${branch || "main"}`;
+
+      console.log("push success!");
     });
 
   prog
@@ -41,6 +45,8 @@ import { exists, getFile } from "./utils";
           ? await execa`pnpm -r publish --access public --no-git-checks`
           : await execa`npm publish`;
       }
+
+      console.log("publish success!");
     });
 
   prog
@@ -70,6 +76,8 @@ import { exists, getFile } from "./utils";
         : "--generate-notes";
 
       await execa`gh release create ${version} --title ${version} --verify-tag ${notes}`;
+
+      console.log("release success!");
     });
 
   prog
@@ -88,6 +96,8 @@ import { exists, getFile } from "./utils";
 
       await execa`npx npm-check-updates -u`;
       await execa`${tool} install`;
+
+      console.log("deps-upgrade success!");
     });
 
   prog
@@ -98,6 +108,8 @@ import { exists, getFile } from "./utils";
     .example("revert false")
     .action(async (target?: "hard" | string) => {
       await execa`git reset ${target === "hard" ? "--hard" : ""} HEAD~1`;
+
+      console.log("revert success!");
     });
 
   prog.parse(process.argv);
