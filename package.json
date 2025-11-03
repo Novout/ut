@@ -36,10 +36,7 @@
     "prepublishOnly": "pnpm build"
   },
   "bin": {
-    "nvt-utilidades": "dist/index.js",
-    "utili": "dist/index.js",
-    "ut": "dist/index.js",
-    "u": "dist/index.js"
+    "nvt-utilidades": "dist/index.js"
   },
   "dependencies": {
     "destr": "^2.0.5",

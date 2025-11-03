@@ -72,5 +72,27 @@ import { exists, getFile } from "./utils";
       await execa`gh release create ${version} --title ${version} --verify-tag ${notes}`;
     });
 
+  prog
+    .command("deps-upgrade", "NPM-UPGRADE-DEPS", {
+      alias: ["up", "ugdp"],
+    })
+    .example("deps-upgrade")
+    .action(async () => {
+      if(!exists('./package.json')) {
+         throw Error(
+          "package.json wrong!",
+        );
+      }
+
+      if(tool === 'bun') {
+        throw Error(
+          "bun is ignored in this command.",
+        );
+      }
+
+      await execa`npx npm-check-updates -u`
+      await execa`${tool} install`
+    });
+
   prog.parse(process.argv);
 })();
