@@ -19,3 +19,7 @@ A personal collection of commands.
 `utili publish`
 
 `utili release`
+
+`utili deps-upgrade`
+
+`utili revert hard`

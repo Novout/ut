@@ -78,20 +78,26 @@ import { exists, getFile } from "./utils";
     })
     .example("deps-upgrade")
     .action(async () => {
-      if(!exists('./package.json')) {
-         throw Error(
-          "package.json wrong!",
-        );
+      if (!exists("./package.json")) {
+        throw Error("package.json wrong!");
       }
 
-      if(tool === 'bun') {
-        throw Error(
-          "bun is ignored in this command.",
-        );
+      if (tool === "bun") {
+        throw Error("bun is ignored in this command.");
       }
 
-      await execa`npx npm-check-updates -u`
-      await execa`${tool} install`
+      await execa`npx npm-check-updates -u`;
+      await execa`${tool} install`;
+    });
+
+  prog
+    .command("revert <hard>", "REVERT-COMMIT", {
+      alias: ["rvt", "revt"],
+    })
+    .example("revert hard")
+    .example("revert false")
+    .action(async (target?: "hard" | string) => {
+      await execa`git reset ${target === "hard" ? "--hard" : ""} HEAD~1`;
     });
 
   prog.parse(process.argv);
