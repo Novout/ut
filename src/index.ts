@@ -71,11 +71,7 @@ import { exists, getFile } from "./utils";
           "wrong version for create release! Check package.json version field",
         );
 
-      const notes = exists("./CHANGELOG.md")
-        ? "--notes-file /CHANGELOG.md"
-        : "--generate-notes";
-
-      await execa`gh release create ${version} --title ${version} --verify-tag ${notes}`;
+      await execa`gh release create ${version} --title ${version} --verify-tag --generate-notes`;
 
       console.log("release success!");
     });
