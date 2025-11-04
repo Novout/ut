@@ -55,6 +55,14 @@ import { exists, getFile } from "./utils";
     })
     .example("release")
     .action(async () => {
+      try {
+        await execa`gh`;
+      } catch (e) {
+        throw Error("install https://cli.github.com/ to use this command.");
+
+        // TODO: auto-install
+      }
+
       const repo = await execa`git remote -v`;
 
       if (!repo.stdout?.includes("https://github.com"))
