@@ -5,5 +5,6 @@ export default defineConfig({
     index: "src/index.ts",
   },
   target: ["node24"],
+  minify: true,
   clean: true,
 });
