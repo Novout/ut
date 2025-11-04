@@ -10,7 +10,7 @@
     "url": "https://github.com/Novout/ut/issues"
   },
   "homepage": "https://github.com/Novout/ut/",
-  "author": "Giovane Cardoso",
+  "author": "Giovane Silva",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -33,7 +33,10 @@
     "build": "tsup",
     "build:watch": "tsup --watch",
     "format": "prettier . --write",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm build",
+    "patch": "generi log patch",
+    "minor": "generi log minor",
+    "major": "generi log major"
   },
   "bin": {
     "nvt-utilidades": "dist/index.js"
@@ -48,6 +51,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.9.2",
+    "generi": "^2.0.4",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3"
