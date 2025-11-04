@@ -116,5 +116,16 @@ import { exists, getFile } from "./utils";
       console.log("revert success!");
     });
 
+  prog
+    .command("youtube-discord", "YOUTUBE-DISCORDO", {
+      alias: ["ytb", "youtube"],
+    })
+    .action(async () => {
+      // https://github.com/twlite/ytmpx
+      await execa`npx --yes ytmpx`;
+
+      console.log("youtube success!");
+    });
+
   prog.parse(process.argv);
 })();
