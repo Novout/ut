@@ -42,15 +42,19 @@
     "nvt-utilidades": "dist/index.js"
   },
   "dependencies": {
+    "bumpp": "^10.3.1",
     "destr": "^2.0.5",
     "execa": "9.6.0",
     "fs-extra": "^11.3.2",
+    "js-yaml": "^4.1.0",
     "pathe": "2.0.3",
-    "sade": "^1.8.1"
+    "sade": "^1.8.1",
+    "tinyglobby": "^0.2.15"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.9.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.10.0",
     "generi": "^2.0.4",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",

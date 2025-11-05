@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     dependencies:
+      bumpp:
+        specifier: ^10.3.1
+        version: 10.3.1
       destr:
         specifier: ^2.0.5
         version: 2.0.5
@@ -16,19 +19,28 @@ importers:
       fs-extra:
         specifier: ^11.3.2
         version: 11.3.2
+      js-yaml:
+        specifier: ^4.1.0
+        version: 4.1.0
       pathe:
         specifier: 2.0.3
         version: 2.0.3
       sade:
         specifier: ^1.8.1
         version: 1.8.1
+      tinyglobby:
+        specifier: ^0.2.15
+        version: 0.2.15
     devDependencies:
       "@types/fs-extra":
         specifier: ^11.0.4
         version: 11.0.4
+      "@types/js-yaml":
+        specifier: ^4.0.9
+        version: 4.0.9
       "@types/node":
-        specifier: ^24.9.2
-        version: 24.9.2
+        specifier: ^24.10.0
+        version: 24.10.0
       generi:
         specifier: ^2.0.4
         version: 2.0.4
@@ -517,16 +529,22 @@ packages:
         integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==,
       }
 
+  "@types/js-yaml@4.0.9":
+    resolution:
+      {
+        integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==,
+      }
+
   "@types/jsonfile@6.1.4":
     resolution:
       {
         integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==,
       }
 
-  "@types/node@24.9.2":
+  "@types/node@24.10.0":
     resolution:
       {
-        integrity: sha512-uWN8YqxXxqFMX2RqGOrumsKeti4LlmIMIyV0lgut4jx7KQBcBiW6vkDtIBvHnHIquwNfJhk8v2OtmO8zXWHfPA==,
+        integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==,
       }
 
   "@types/tinycolor2@1.4.6":
@@ -1746,13 +1764,15 @@ snapshots:
   "@types/fs-extra@11.0.4":
     dependencies:
       "@types/jsonfile": 6.1.4
-      "@types/node": 24.9.2
+      "@types/node": 24.10.0
+
+  "@types/js-yaml@4.0.9": {}
 
   "@types/jsonfile@6.1.4":
     dependencies:
-      "@types/node": 24.9.2
+      "@types/node": 24.10.0
 
-  "@types/node@24.9.2":
+  "@types/node@24.10.0":
     dependencies:
       undici-types: 7.16.0
 

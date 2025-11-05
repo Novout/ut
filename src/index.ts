@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
 import sade from "sade";
+import yaml from "js-yaml";
 import { execa } from "execa";
 import { isLerna, isPnpmWorkspace, tool } from "./npm";
 import { exists, getFile } from "./utils";
+import { versionBump } from "bumpp";
+import fs from "fs";
+import { glob } from "tinyglobby";
+import { readFileSync } from "fs-extra";
+import path from "path";
 
 (async function () {
   const prog = sade("nvt-utilidades");
@@ -114,6 +120,49 @@ import { exists, getFile } from "./utils";
       await execa`git reset ${target === "hard" ? "--hard" : ""} HEAD~1`;
 
       console.log("revert success!");
+    });
+
+  prog
+    .command("bump <tag>", "BUMP", {
+      alias: ["bmp", "bumpp"],
+    })
+    .action(async (tag: "patch" | "minor" | "major") => {
+      const getPNPMWorkspace = (): Record<"packages", string[]> | undefined => {
+        const isPnpmWorkspace = exists("./pnpm-workspace.yaml");
+
+        return isPnpmWorkspace
+          ? (yaml.load(
+              readFileSync(
+                path.resolve(process.cwd(), "./pnpm-workspace.yaml"),
+                "utf8",
+              ),
+            ) as Record<"packages", string[]>)
+          : undefined;
+      };
+
+      const workspace = getPNPMWorkspace();
+      const targets =
+        workspace && workspace.packages
+          ? workspace.packages
+          : ["./packages/*/package.json"];
+
+      const packages = await glob(["package.json", ...targets], {
+        expandDirectories: false,
+        fs,
+      });
+
+      await versionBump({
+        files: packages,
+        release: tag,
+        commit: false,
+        push: false,
+        tag: false,
+        confirm: false,
+        noVerify: true,
+        printCommits: false,
+      });
+
+      console.log("bump success!");
     });
 
   prog
