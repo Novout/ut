@@ -176,5 +176,16 @@ import path from "path";
       console.log("youtube success!");
     });
 
+  prog
+    .command("up", "ACTIONS-UP", {
+      alias: ["act", "act-up"],
+    })
+    .action(async () => {
+      // https://github.com/azat-io/actions-up
+      await execa`npx actions-up`;
+
+      console.log("actions-up success!");
+    });
+
   prog.parse(process.argv);
 })();
